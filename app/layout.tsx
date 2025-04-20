@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import "@fortawesome/fontawesome-svg-core/styles.css"; // Import FontAwesome CSS
+import { config } from "@fortawesome/fontawesome-svg-core"; // Configure FontAwesome
 import "./globals.css";
 
+// Custom fonts
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -11,6 +14,9 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+// Configure FontAwesome (disable auto-adding CSS)
+config.autoAddCss = false;
 
 export const metadata: Metadata = {
   title: "Create Next App",
