@@ -1,25 +1,50 @@
 'use client';
 
+import { useState } from 'react';
+import { HomeIcon } from '@heroicons/react/24/outline';
+
 export default function NavbarComp() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <nav
       style={{
         backgroundImage: "url('/navbg.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
       }}
       className="shadow-md fixed w-full top-0 z-10 text-white"
     >
       <div className="bg-black/60">
         <div className="max-w-screen-xl mx-auto px-6 py-4 flex justify-between items-center">
-          
           {/* Navbar Links (Desktop) */}
           <div className="hidden md:flex space-x-8 justify-center flex-1">
-            <a href="#home" className="hover:text-blue-400 transition duration-300">Home</a>
-            <a href="#projects" className="hover:text-blue-400 transition duration-300">Projects</a>
-            <a href="#skills" className="hover:text-blue-400 transition duration-300">Skills</a>
-            <a href="#contact" className="hover:text-blue-400 transition duration-300">Contact</a>
+            <a
+              href="#home"
+              className="hover:text-blue-400 transition duration-300 flex items-center space-x-1"
+            >
+              <HomeIcon className="w-5 h-5" />
+              <span>Home</span>
+            </a>
+            <a
+              href="#projects"
+              className="hover:text-blue-400 transition duration-300"
+            >
+              Projects
+            </a>
+            <a
+              href="#skills"
+              className="hover:text-blue-400 transition duration-300"
+            >
+              Skills
+            </a>
+            <a
+              href="#contact"
+              className="hover:text-blue-400 transition duration-300"
+            >
+              Contact
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -27,9 +52,7 @@ export default function NavbarComp() {
             <button
               className="hover:text-blue-400 focus:outline-none"
               aria-label="Toggle Navigation"
-              onClick={() => {
-                // Add toggle logic for mobile menu
-              }}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +64,7 @@ export default function NavbarComp() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
+                  strokeWidth={2}
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
@@ -49,15 +72,38 @@ export default function NavbarComp() {
           </div>
         </div>
 
-        {/* Mobile Menu (Centered) */}
-        <div className="md:hidden bg-black/60">
-          <div className="p-4 space-y-4 flex justify-center">
-            <a href="#home" className="block hover:text-blue-400">Home</a>
-            <a href="#projects" className="block hover:text-blue-400">Projects</a>
-            <a href="#skills" className="block hover:text-blue-400">Skills</a>
-            <a href="#contact" className="block hover:text-blue-400">Contact</a>
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-black/80">
+            <div className="p-4 space-y-4 flex flex-col items-center">
+              <a
+                href="#home"
+                className="hover:text-blue-400 transition duration-300 flex items-center space-x-1"
+              >
+                <HomeIcon className="w-5 h-5" />
+                <span>Home</span>
+              </a>
+              <a
+                href="#projects"
+                className="hover:text-blue-400 transition duration-300"
+              >
+                Projects
+              </a>
+              <a
+                href="#skills"
+                className="hover:text-blue-400 transition duration-300"
+              >
+                Skills
+              </a>
+              <a
+                href="#contact"
+                className="hover:text-blue-400 transition duration-300"
+              >
+                Contact
+              </a>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );
