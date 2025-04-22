@@ -1,3 +1,4 @@
+import { Whattech } from "./about/page";
 import Contact from "./contact/page";
 import Home from "./Home/page";
 import NavbarComp from "./navbar/page";
@@ -9,6 +10,15 @@ export default function Mainpage() {
     <>
     <NavbarComp />
     <Home />
+
+    <div style={{ display: 'flex' }}>
+      <div style={{ flex: 1}}>
+        <Whattech />
+      </div>
+      <div style={{ flex: 1}}>
+      <Whattech />
+      </div>
+    </div>
     <Projects />
     <Contact />
     </>
