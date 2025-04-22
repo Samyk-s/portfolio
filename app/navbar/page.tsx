@@ -28,17 +28,18 @@ export default function NavbarComp() {
               <span>Home</span>
             </a>
             <a
-              href="#projects"
-              className="hover:text-blue-400 transition duration-300"
-            >
-              Projects
-            </a>
-            <a
               href="#skills"
               className="hover:text-blue-400 transition duration-300"
             >
               Skills
             </a>
+            <a
+              href="#projects"
+              className="hover:text-blue-400 transition duration-300"
+            >
+              Projects
+            </a>
+           
             <a
               href="#contact"
               className="hover:text-blue-400 transition duration-300"

@@ -1,37 +1,39 @@
 import React from "react";
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa"; // FontAwesome icons
+import { FaLinkedin, FaGithub, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 export default function Contact() {
-  // Define styles object here
   const styles: { [key: string]: React.CSSProperties } = {
     footer: {
       backgroundColor: "#222",
-      backgroundImage: "url(/navbg.png)", // Add background image
+      backgroundImage: "url(/navbg.png)",
       backgroundSize: "cover",
       color: "#fff",
       padding: "10px 0",
       textAlign: "center",
-      paddingTop: "80px", // Add padding to prevent navbar overlap
+      paddingTop: "80px",
     },
     container: {
       width: "90%",
       maxWidth: "1200px",
       margin: "0 auto",
       display: "flex",
-      justifyContent: "space-between", // Aligns the content to the left and right
-      alignItems: "center", // Vertically aligns the items
+      justifyContent: "space-between",
+      alignItems: "center",
+      flexWrap: "wrap", // ensures responsiveness
     },
     heading: {
       fontSize: "26px",
-      color: "transparent", // Make text transparent to apply the gradient
-      background: "linear-gradient(45deg, #ff416c, #ff4b2b)", // Instagram-like gradient
-      backgroundClip: "text", // Apply the gradient to the text
-      WebkitBackgroundClip: "text", // Safari compatibility
+      color: "transparent",
+      background: "linear-gradient(45deg, #ff416c, #ff4b2b)",
+      backgroundClip: "text",
+      WebkitBackgroundClip: "text",
       fontWeight: "bold",
     },
     socialLinks: {
-      display: "flex", // Add flex to make icons horizontal
-      gap: "40px", // Add space between icons
+      display: "flex",
+      gap: "40px",
+      flexWrap: "wrap",
+      justifyContent: "center",
     },
     socialItem: {
       display: "flex",
@@ -53,13 +55,12 @@ export default function Contact() {
   return (
     <footer id="contact" style={styles.footer}>
       <div style={styles.container}>
-        <h4 style={styles.heading}>
-          Connect with Me
-        </h4>
+        <h4 style={styles.heading}>Connect with Me</h4>
         <div style={styles.socialLinks}>
+          {/* LinkedIn */}
           <div style={styles.socialItem}>
             <a
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/in/samyak-bajracharya-b3380028a"
               target="_blank"
               rel="noopener noreferrer"
               style={styles.socialIcon}
@@ -69,9 +70,10 @@ export default function Contact() {
             <p style={styles.iconText}>LinkedIn</p>
           </div>
 
+          {/* GitHub */}
           <div style={styles.socialItem}>
             <a
-              href="https://github.com"
+              href="https://github.com/Samyk-s"
               target="_blank"
               rel="noopener noreferrer"
               style={styles.socialIcon}
@@ -82,10 +84,25 @@ export default function Contact() {
           </div>
 
           <div style={styles.socialItem}>
-            <a href="mailto:youremail@example.com" style={styles.socialIcon}>
+            <a
+              href="https://wa.me/9779808516437?text=Hi%20Samyak%2C%20I%20just%20saw%20your%20portfolio!"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={styles.socialIcon}
+            >
+              <FaWhatsapp size={30} />
+            </a>
+            <p style={styles.iconText}>+977 9808516437</p>
+          </div>
+          <div style={styles.socialItem}>
+            <a
+              href="mailto:samykbajr919@gmail.com?subject=Regarding%20My%20Portfolio"
+              style={styles.socialIcon}
+            >
               <FaEnvelope size={30} />
             </a>
-            <p style={styles.iconText}>Email</p>
+
+            <p style={styles.iconText}>samykbajr919@gmail.com</p>
           </div>
         </div>
       </div>
