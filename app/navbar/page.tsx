@@ -1,10 +1,16 @@
 "use client";
-
 import { useState } from "react";
 import { HomeIcon } from "@heroicons/react/24/outline";
 
 export default function NavbarComp() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const scrollToSection = (sectionId: string) => { // Explicitly defining the type of sectionId as string
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <nav
@@ -21,28 +27,27 @@ export default function NavbarComp() {
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 justify-center flex-1">
             <a
-              href="#Home"
-              className="hover:text-blue-400 transition duration-300 flex items-center space-x-1"
+              onClick={() => scrollToSection("Home")}
+              className="cursor-pointer hover:text-blue-400 transition duration-300 flex items-center space-x-1"
             >
               <HomeIcon className="w-5 h-5" />
               <span>Home</span>
             </a>
             <a
-              href="#how"
-              className="hover:text-blue-400 transition duration-300"
+              onClick={() => scrollToSection("about")}
+              className="cursor-pointer hover:text-blue-400 transition duration-300"
             >
               Skills
             </a>
             <a
-              href="#projects"
-              className="hover:text-blue-400 transition duration-300"
+              onClick={() => scrollToSection("projects")}
+              className="cursor-pointer hover:text-blue-400 transition duration-300"
             >
               Projects
             </a>
-           
             <a
-              href="#contact"
-              className="hover:text-blue-400 transition duration-300"
+              onClick={() => scrollToSection("contact")}
+              className="cursor-pointer hover:text-blue-400 transition duration-300"
             >
               Connect with me
             </a>
@@ -78,27 +83,27 @@ export default function NavbarComp() {
           <div className="md:hidden bg-black/90 w-full">
             <div className="p-4 space-y-4 flex flex-col items-center">
               <a
-                href="#Home"
-                className="hover:text-blue-400 transition duration-300 flex items-center space-x-1"
+                onClick={() => scrollToSection("home")}
+                className="cursor-pointer hover:text-blue-400 transition duration-300 flex items-center space-x-1"
               >
                 <HomeIcon className="w-5 h-5" />
                 <span>Home</span>
               </a>
               <a
-                href="#projects"
-                className="hover:text-blue-400 transition duration-300"
+                onClick={() => scrollToSection("projects")}
+                className="cursor-pointer hover:text-blue-400 transition duration-300"
               >
                 Projects
               </a>
               <a
-                href="#skills"
-                className="hover:text-blue-400 transition duration-300"
+                onClick={() => scrollToSection("skills")}
+                className="cursor-pointer hover:text-blue-400 transition duration-300"
               >
                 Skills
               </a>
               <a
-                href="#contact"
-                className="hover:text-blue-400 transition duration-300"
+                onClick={() => scrollToSection("contact")}
+                className="cursor-pointer hover:text-blue-400 transition duration-300"
               >
                 Connect with me
               </a>

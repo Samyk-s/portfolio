@@ -1,27 +1,30 @@
 import AboutPage from "./about/page";
-import Contact from "./contact/page";
-import Home from "./Home/page";
 import TechOrbit from "./how/page";
-import NavbarComp from "./navbar/page";
 import Projects from "./projects/page";
-
+import Contact from "./contact/page";
+import NavbarComp from "./navbar/page";
+import Home from "./Home/page";
 
 export default function Mainpage() {
   return (
     <>
-    <NavbarComp />
-    <Home />
+      <NavbarComp />
+      <Home />
 
-    <div style={{ display: 'flex' }}>
-      <div style={{ flex: 1}}>
-        <AboutPage/>
-      </div>
-      <div style={{ flex: 1}}>
-        <TechOrbit/>
+      <div style={{ display: "flex" }}>
+        <div style={{ flex: 1 }} id="about">
+          <AboutPage />
         </div>
-    </div>
-    <Projects />
-    <Contact />
+        <div style={{ flex: 1 }} id="how">
+          <TechOrbit />
+        </div>
+      </div>
+      <div id="projects">
+        <Projects />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
     </>
   );
 }
