@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import {
   Timeline,
   TimelineContent,
@@ -15,14 +16,16 @@ import {
   HiLightningBolt,
   HiFire,
 } from "react-icons/hi";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
-// Define the logo type
+gsap.registerPlugin(ScrollTrigger);
+
 type LogoItem = {
   src: string;
   alt: string;
 };
 
-// Reusable logo row component
 function LogoRow({ title, items }: { title: string; items: LogoItem[] }) {
   return (
     <div className="mb-4">
@@ -34,17 +37,14 @@ function LogoRow({ title, items }: { title: string; items: LogoItem[] }) {
             src={tech.src}
             alt={tech.alt}
             className="h-20 w-auto bg-white/10 p-3 rounded-lg shadow-md"
-            />
+          />
         ))}
       </div>
     </div>
   );
 }
 
-// All tech stack images grouped
-const techData: {
-  [category: string]: LogoItem[];
-} = {
+const techData: { [category: string]: LogoItem[] } = {
   uiux: [
     { src: "/logos/canva.jpg", alt: "Canva" },
     { src: "/logos/tailwindcss.jpg", alt: "TailwindCSS" },
@@ -82,75 +82,93 @@ const techData: {
 };
 
 export function Whattech() {
+  const timelineRefs = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    timelineRefs.current.forEach((ref, index) => {
+      if (ref) {
+        gsap.fromTo(
+          ref,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ref,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    });
+  }, []);
+
+  // Helper to assign refs dynamically
+  const setRef = (el: HTMLDivElement | null, index: number) => {
+    if (el) timelineRefs.current[index] = el;
+  };
+
+  const categories = [
+    {
+      title: "UI/UX Styling",
+      items: techData.uiux,
+      icon: HiOutlinePencilAlt,
+    },
+    {
+      title: "Frontend Development",
+      items: techData.frontend,
+      icon: HiDeviceMobile,
+    },
+    {
+      title: "Version Control & Integration",
+      items: techData.versionControl,
+      icon: HiCode,
+    },
+    {
+      title: "Package Management & Deployment",
+      items: techData.packageTools,
+      icon: HiOutlineCloudDownload,
+    },
+    {
+      title: "SEO, Testing & Debugging",
+      items: techData.seoTesting,
+      icon: HiSearch,
+    },
+    {
+      title: "DevOps & Tools",
+      items: techData.devops,
+      icon: HiLightningBolt,
+    },
+    {
+      title: "Game Development",
+      items: techData.game,
+      icon: HiFire,
+    },
+  ];
+
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-blend-multiply bg-black/60 z-0"
         style={{ backgroundImage: "url('/bgimg.png')" }}
       />
 
-      {/* Content - Left aligned */}
       <div className="relative z-10 flex flex-col items-start text-white px-6 sm:px-12 lg:px-24 py-12 max-w-5xl w-full mx-auto">
         <h1 className="text-4xl font-bold mb-10">What tech stack I use</h1>
         <Timeline>
-          <TimelineItem>
-            <TimelinePoint icon={HiOutlinePencilAlt} />
-            <TimelineContent>
-              <LogoRow title="UI/UX Styling" items={techData.uiux} />
-            </TimelineContent>
-          </TimelineItem>
-
-          <TimelineItem>
-            <TimelinePoint icon={HiDeviceMobile} />
-            <TimelineContent>
-              <LogoRow title="Frontend Development" items={techData.frontend} />
-            </TimelineContent>
-          </TimelineItem>
-
-          <TimelineItem>
-            <TimelinePoint icon={HiCode} />
-            <TimelineContent>
-              <LogoRow
-                title="Version Control & Integration"
-                items={techData.versionControl}
-              />
-            </TimelineContent>
-          </TimelineItem>
-
-          <TimelineItem>
-            <TimelinePoint icon={HiOutlineCloudDownload} />
-            <TimelineContent>
-              <LogoRow
-                title="Package Management & Deployment"
-                items={techData.packageTools}
-              />
-            </TimelineContent>
-          </TimelineItem>
-
-          <TimelineItem>
-            <TimelinePoint icon={HiSearch} />
-            <TimelineContent>
-              <LogoRow
-                title="SEO, Testing & Debugging"
-                items={techData.seoTesting}
-              />
-            </TimelineContent>
-          </TimelineItem>
-
-          <TimelineItem>
-            <TimelinePoint icon={HiLightningBolt} />
-            <TimelineContent>
-              <LogoRow title="DevOps & Tools" items={techData.devops} />
-            </TimelineContent>
-          </TimelineItem>
-
-          <TimelineItem>
-            <TimelinePoint icon={HiFire} />
-            <TimelineContent>
-              <LogoRow title="Game Development" items={techData.game} />
-            </TimelineContent>
-          </TimelineItem>
+          {categories.map((cat, index) => (
+            <TimelineItem key={cat.title}>
+              <TimelinePoint icon={cat.icon} />
+              <TimelineContent>
+                <div ref={(el) => setRef(el, index)}>
+                  <LogoRow title={cat.title} items={cat.items} />
+                </div>
+              </TimelineContent>
+            </TimelineItem>
+          ))}
         </Timeline>
       </div>
     </div>
