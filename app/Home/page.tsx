@@ -111,8 +111,10 @@ export default function Home() {
 
           <div className="flex justify-center md:justify-start mt-6">
             <a
-              href="#projects"
+              href="/SamyakBajracharya_CV.pdf"  // Link to the resume (PDF)
               className="inline-flex items-center gap-2 px-6 py-2 ml-[300px] text-white bg-blue-600 hover:bg-red-700 rounded transition"
+              target="_blank"  // Open PDF in a new tab
+              rel="noopener noreferrer"  // Security measures
             >
               <FontAwesomeIcon
                 icon={faCloudArrowDown}
