@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { HomeIcon } from '@heroicons/react/24/outline';
+import { useState } from "react";
+import { HomeIcon } from "@heroicons/react/24/outline";
 
 export default function NavbarComp() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -10,14 +10,14 @@ export default function NavbarComp() {
     <nav
       style={{
         backgroundImage: "url('/navbg.png')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
-      className="shadow-md fixed w-full top-0 z-10 text-white"
+      className="shadow-md fixed w-full top-0 z-10 text-white overflow-x-hidden"
     >
-      <div className="bg-black/60">
-        <div className="max-w-screen-xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="bg-black w-full">
+        <div className="mx-auto px-4 sm:px-6 py-4 flex justify-between items-center overflow-x-hidden">
           {/* Navbar Links (Desktop) */}
           <div className="hidden md:flex space-x-8 justify-center flex-1">
             <a
@@ -43,7 +43,7 @@ export default function NavbarComp() {
               href="#contact"
               className="hover:text-blue-400 transition duration-300"
             >
-              Contact
+              Connect with me
             </a>
           </div>
 
@@ -74,7 +74,7 @@ export default function NavbarComp() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-black/80">
+          <div className="md:hidden bg-black/80 w-full">
             <div className="p-4 space-y-4 flex flex-col items-center">
               <a
                 href="#home"
@@ -99,7 +99,7 @@ export default function NavbarComp() {
                 href="#contact"
                 className="hover:text-blue-400 transition duration-300"
               >
-                Contact
+                Connect with me
               </a>
             </div>
           </div>

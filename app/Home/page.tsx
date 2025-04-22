@@ -1,6 +1,21 @@
+"use client";
+
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudArrowDown } from "@fortawesome/free-solid-svg-icons";
+
+// React Icons
+import { HiOutlineDeviceMobile } from "react-icons/hi";
+import { FaReact, FaHtml5, FaGithub, FaHandshake } from "react-icons/fa";
+import { MdOutlineBugReport, MdDashboardCustomize } from "react-icons/md";
+
+import {
+  Timeline,
+  TimelineBody,
+  TimelineContent,
+  TimelineItem,
+  TimelinePoint,
+} from "flowbite-react";
 
 export default function Home() {
   return (
@@ -9,49 +24,105 @@ export default function Home() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-blend-multiply bg-black/60 z-0"
         style={{ backgroundImage: "url('/bgimg.png')" }}
       />
-     <div className="relative z-10 flex flex-col md:flex-row items-center  ml-[50px] md:items-start w-full px-[20px] md:px-[50px]">
-        {/* Left Side: Profile Picture */}
-        <div className="w-50 h-50 relative mb-4 mt-[150px] md:mb-0 md:mr-8 rounded-full overflow-hidden">
+      <div className="relative z-10 flex flex-col md:flex-row items-center ml-[50px] md:items-start w-full px-[20px] md:px-[50px]">
+        {/* Profile Image */}
+        <div className="w-60 h-60 relative mb-4 mt-[150px] md:mb-0 md:mr-8 rounded-full overflow-hidden">
           <Image
-            src="/profile.jpg" // your profile image
+            src="/profile.jpg"
             alt="Profile Picture"
             layout="fill"
             objectFit="cover"
           />
         </div>
 
-        <div className="text-center md:text-left mt-[50px] ml-[150px] bg-opacity-0 p-6 rounded ml-[70px] w-[950px]">
-  <h1 className="text-5xl font-bold mb-7 ml-[200px] text-white">Samyak Bajracharya</h1>
-  <h2 className="text-3xl font-semibold mb-4 ml-[245px] text-white">Front End Engineer</h2>
+        <div className="text-center md:text-left mt-[10px] ml-[150px] bg-opacity-0 p-6 rounded w-[950px]">
+          <h1 className="text-4xl font-bold mb-7 ml-[150px] text-white">
+            Samyak Bajracharya
+          </h1>
 
-  <ul className="text-xl text-white text-left ml-[100px] space-y-3 mt-6 list-disc list-inside">
-  <li>🎨 Your <strong>go-to UI/UX guy</strong> — clean, modern, and mobile-first designs that just feel right.</li>
-    <li>💻 Building blazing-fast, responsive <strong>React websites</strong> that actually convert.</li>
-    <li>🎮 Dabbling in <strong>game dev</strong> — from Unity scenes to 3D madness, let’s make games fun again.</li>
-    <li>🧠 Full-cycle problem solver — <strong>design, code, debug, repeat</strong> (with caffeine and good music).</li>
-    <li>📈 Writing <strong>semantic HTML</strong>, optimized CSS, and always keeping <strong>SEO in check</strong>.</li>
-    <li>🧰 <strong>Version control ninja</strong> — Git, GitHub, API integrations, clean commits, zero drama.</li>
-    <li>⚡ Whether it’s a landing page, dashboard, or e-commerce — <strong>I deliver the goods</strong>.</li>
-    <li>🤝 Wanna <strong>collab, talk tech, startup ideas, football, or just hang?</strong> I’m always down.</li>
-    <li>📬 Open to <strong>projects, gigs, or even catching up over momo and chai</strong> — hit me up!</li>
-  </ul>
+          <p className="text-2xl font-semibold mb-4 text-white">
+            FrontEnd Engineer | So what can I do for you?
+          </p>
 
+          <Timeline>
+            <TimelineItem>
+              <TimelinePoint icon={HiOutlineDeviceMobile} />
+              <TimelineContent>
+                <TimelineBody className="text-white">
+                  UI/UX Specialist — Crafting clean, modern, mobile-first designs that just feel right.
+                </TimelineBody>
+              </TimelineContent>
+            </TimelineItem>
 
-  <div className="flex justify-center md:justify-start mt-6">
-    <a
-      href="#projects"
-      className="inline-flex items-center gap-2 px-6 py-2 ml-[300px] text-white bg-blue-600 hover:bg-red-700 rounded transition"
-    >
-      <FontAwesomeIcon
-        icon={faCloudArrowDown}
-        bounce
-        style={{ color: "white" }}
-      />
-      Resume
-    </a>
-  </div>
-</div>
+            <TimelineItem>
+              <TimelinePoint icon={FaReact} />
+              <TimelineContent>
+                <TimelineBody className="text-white">
+                  React | Next.js Developer — Building blazing-fast, fully responsive websites that actually convert.
+                </TimelineBody>
+              </TimelineContent>
+            </TimelineItem>
 
+            <TimelineItem>
+              <TimelinePoint icon={MdOutlineBugReport} />
+              <TimelineContent>
+                <TimelineBody className="text-white">
+                  End-to-End Problem Solver — From design to code to debug — powered by caffeine and a killer playlist.
+                </TimelineBody>
+              </TimelineContent>
+            </TimelineItem>
+
+            <TimelineItem>
+              <TimelinePoint icon={FaHtml5} />
+              <TimelineContent>
+                <TimelineBody className="text-white">
+                  SEO-Conscious Frontend — Writing semantic HTML and optimized CSS with performance and discoverability in mind.
+                </TimelineBody>
+              </TimelineContent>
+            </TimelineItem>
+
+            <TimelineItem>
+              <TimelinePoint icon={FaGithub} />
+              <TimelineContent>
+                <TimelineBody className="text-white">
+                  Version Control Pro — Git, GitHub, API integrations — clean commits, smooth workflows, no drama.
+                </TimelineBody>
+              </TimelineContent>
+            </TimelineItem>
+
+            <TimelineItem>
+              <TimelinePoint icon={FaHandshake} />
+              <TimelineContent>
+                <TimelineBody className="text-white">
+                  Let’s Connect — Whether it’s tech talk, startup ideas, football banter, or a spontaneous collab — I’m in.
+                </TimelineBody>
+              </TimelineContent>
+            </TimelineItem>
+
+            <TimelineItem>
+              <TimelinePoint icon={MdDashboardCustomize} />
+              <TimelineContent>
+                <TimelineBody className="text-white">
+                  Versatile Builder — Landing pages, dashboards, e-commerce sites — I bring ideas to life with speed and style.
+                </TimelineBody>
+              </TimelineContent>
+            </TimelineItem>
+          </Timeline>
+
+          <div className="flex justify-center md:justify-start mt-6">
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 px-6 py-2 ml-[300px] text-white bg-blue-600 hover:bg-red-700 rounded transition"
+            >
+              <FontAwesomeIcon
+                icon={faCloudArrowDown}
+                bounce
+                style={{ color: "white" }}
+              />
+              My Resume
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
