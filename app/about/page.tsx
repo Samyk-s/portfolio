@@ -85,7 +85,7 @@ export function Whattech() {
   const timelineRefs = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
-    timelineRefs.current.forEach((ref, index) => {
+    timelineRefs.current.forEach((ref) => {
       if (ref) {
         gsap.fromTo(
           ref,
@@ -106,9 +106,10 @@ export function Whattech() {
     });
   }, []);
 
-  // Helper to assign refs dynamically
-  const setRef = (el: HTMLDivElement | null, index: number) => {
-    if (el) timelineRefs.current[index] = el;
+  const setRef = (el: HTMLDivElement | null) => {
+    if (el) {
+      timelineRefs.current.push(el);
+    }
   };
 
   const categories = [
@@ -159,11 +160,11 @@ export function Whattech() {
       <div className="relative z-10 flex flex-col items-start text-white px-6 sm:px-12 lg:px-24 py-12 max-w-5xl w-full mx-auto">
         <h1 className="text-4xl font-bold mb-10">What tech stack I use</h1>
         <Timeline>
-          {categories.map((cat, index) => (
+          {categories.map((cat) => (
             <TimelineItem key={cat.title}>
               <TimelinePoint icon={cat.icon} />
               <TimelineContent>
-                <div ref={(el) => setRef(el, index)}>
+                <div ref={setRef}>
                   <LogoRow title={cat.title} items={cat.items} />
                 </div>
               </TimelineContent>
