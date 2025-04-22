@@ -81,7 +81,7 @@ const techData: { [category: string]: LogoItem[] } = {
   game: [{ src: "/logos/unity.jpg", alt: "Unity" }],
 };
 
-export function Whattech() {
+function Whattech() {
   const timelineRefs = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
@@ -172,6 +172,14 @@ export function Whattech() {
           ))}
         </Timeline>
       </div>
+    </div>
+  );
+}
+
+export default function AboutPage() {
+  return (
+    <div>
+      <Whattech />
     </div>
   );
 }
