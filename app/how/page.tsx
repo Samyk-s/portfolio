@@ -48,7 +48,7 @@ export default function TechOrbit() {
     <div className="relative min-h-screen flex flex-col items-center justify-center bg-black text-white px-6 py-12">
       {/* Added heading */}
       <h1 className="text-4xl font-bold mb-5 text-center">
-       That's How I <span className="text-blue-400">Do It</span>
+       That is How I <span className="text-blue-400">Do It</span>
       </h1>
       <p className="text-2xl mt-[25px] text-center">
         For the React/next.js project</p>
