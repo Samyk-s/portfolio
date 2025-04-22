@@ -158,7 +158,7 @@ function Whattech() {
       />
 
       <div className="relative z-10 flex flex-col items-start text-white px-6 sm:px-12 lg:px-24 py-12 max-w-5xl w-full mx-auto">
-        <h1 className="text-4xl font-bold mb-10">What tech stack I use</h1>
+        <h1 className="text-5xl font-bold mb-10">What tech stack I use</h1>
         <Timeline>
           {categories.map((cat) => (
             <TimelineItem key={cat.title}>

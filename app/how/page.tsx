@@ -45,21 +45,25 @@ export default function TechOrbit() {
   }, []); // Empty dependency array ensures this effect runs only once on mount
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-black text-white px-6 py-12">
+    <div className="relative h-[1276px] flex flex-col items-center justify-center bg-black text-white px-6">
       {/* Added heading */}
-      <h1 className="text-4xl font-bold mb-5 text-center">
-       That is How I <span className="text-blue-400">Do It</span>
+      <h1 className="text-5xl font-bold mb-5 text-center">
+        That is How I <span className="text-blue-400">Do It</span>
       </h1>
-      <p className="text-2xl mt-[25px] text-center">
-        For the React/next.js project</p>
-    <div className="relative min-h-screen flex items-center justify-center bg-black text-white px-6 py-12">
-      
+      <p className="text-2xl mt-[25px] text-center mb-[150px]">
+        This is my digital toolkit — the stuff I love and trust to build cool
+        things.
+      </p>
+
+      {/* Removed unnecessary nested div */}
       <div className="relative w-[500px] h-[500px]">
-        
-      
         {/* Center - Git & CI/CD */}
         <div className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center p-6 rounded-md shadow-lg">
-          <img src="/logos/githublogo.jpg" alt="GitHub" className="h-16 w-16 mb-3" />
+          <img
+            src="/logos/githublogo.jpg"
+            alt="GitHub"
+            className="h-16 w-16 mb-3"
+          />
         </div>
 
         {/* Orbit */}
@@ -83,7 +87,6 @@ export default function TechOrbit() {
           ))}
         </div>
       </div>
-    </div>
     </div>
   );
 }

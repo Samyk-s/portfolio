@@ -28,7 +28,7 @@ export default function NavbarComp() {
               <span>Home</span>
             </a>
             <a
-              href="#skills"
+              href="#how"
               className="hover:text-blue-400 transition duration-300"
             >
               Skills

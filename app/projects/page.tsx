@@ -2,14 +2,18 @@ import Image from "next/image";
 
 export default function Projects() {
   const items = [
-    { heading: "Sunset", imageSrc: "/project1.png", link: "https://nepaltravelplanner.vercel.app/" },
     {
-      heading: "Mountains",
+      heading: "Travel Planner",
+      imageSrc: "/project1.png",
+      link: "https://nepaltravelplanner.vercel.app/",
+    },
+    {
+      heading: "E-commerce",
       imageSrc: "/project2.png",
       link: "https://ecommerce-coral-five.vercel.app/",
     },
-    { heading: "Forest", imageSrc: "/project3.png", link: "" },
-    { heading: "Ocean", imageSrc: "/project4.png", link: "/projects/ocean" },
+    { heading: "AI trash classifier", imageSrc: "/project3.png", link: "https://trash-classifier-ai.vercel.app/" },
+    { heading: "Portfolio", imageSrc: "/project4.png", link: "https://samyakbajr.vercel.app/" },
   ];
 
   return (
