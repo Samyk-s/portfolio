@@ -14,14 +14,14 @@ export default function NavbarComp() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className="shadow-md fixed w-full top-0 z-10 text-white overflow-x-hidden"
+      className="shadow-md fixed w-full top-0 z-50 text-white"
     >
-      <div className="bg-black w-full">
-        <div className="mx-auto px-4 sm:px-6 py-4 flex justify-between items-center overflow-x-hidden">
-          {/* Navbar Links (Desktop) */}
+      <div className="bg-black bg-opacity-80 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 justify-center flex-1">
             <a
-              href="#home"
+              href="#Home"
               className="hover:text-blue-400 transition duration-300 flex items-center space-x-1"
             >
               <HomeIcon className="w-5 h-5" />
@@ -47,12 +47,12 @@ export default function NavbarComp() {
             </a>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Toggle */}
           <div className="md:hidden">
             <button
-              className="hover:text-blue-400 focus:outline-none"
-              aria-label="Toggle Navigation"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle Navigation"
+              className="hover:text-blue-400 focus:outline-none"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -74,10 +74,10 @@ export default function NavbarComp() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-black/80 w-full">
+          <div className="md:hidden bg-black/90 w-full">
             <div className="p-4 space-y-4 flex flex-col items-center">
               <a
-                href="#home"
+                href="#Home"
                 className="hover:text-blue-400 transition duration-300 flex items-center space-x-1"
               >
                 <HomeIcon className="w-5 h-5" />
