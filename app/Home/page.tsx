@@ -19,7 +19,10 @@ import {
 
 export default function Home() {
   return (
-    <section className="relative flex flex-col md:flex-row items-center md:items-start mt-[50px] p-6 w-full">
+    <section
+      id="home"
+      className="relative flex flex-col md:flex-row items-center md:items-start mt-[50px] p-6 w-full"
+    >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-blend-multiply bg-black/60 z-0"
         style={{ backgroundImage: "url('/bgimg.png')" }}
@@ -111,10 +114,10 @@ export default function Home() {
 
           <div className="flex justify-center md:justify-start mt-6">
             <a
-              href="/SamyakBajracharya_CV.pdf"  // Link to the resume (PDF)
+              href="/SamyakBajracharya_CV.pdf"
               className="inline-flex items-center gap-2 px-6 py-2 ml-[300px] text-white bg-blue-600 hover:bg-red-700 rounded transition"
-              target="_blank"  // Open PDF in a new tab
-              rel="noopener noreferrer"  // Security measures
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FontAwesomeIcon
                 icon={faCloudArrowDown}

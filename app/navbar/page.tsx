@@ -5,7 +5,7 @@ import { HomeIcon } from "@heroicons/react/24/outline";
 export default function NavbarComp() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const scrollToSection = (sectionId: string) => { // Explicitly defining the type of sectionId as string
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -27,7 +27,7 @@ export default function NavbarComp() {
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 justify-center flex-1">
             <a
-              onClick={() => scrollToSection("Home")}
+              onClick={() => scrollToSection("home")}
               className="cursor-pointer hover:text-blue-400 transition duration-300 flex items-center space-x-1"
             >
               <HomeIcon className="w-5 h-5" />
@@ -37,7 +37,8 @@ export default function NavbarComp() {
               onClick={() => scrollToSection("about")}
               className="cursor-pointer hover:text-blue-400 transition duration-300"
             >
-              Skills
+              {" "}
+              Skills{" "}
             </a>
             <a
               onClick={() => scrollToSection("projects")}
@@ -83,26 +84,46 @@ export default function NavbarComp() {
           <div className="md:hidden bg-black/90 w-full">
             <div className="p-4 space-y-4 flex flex-col items-center">
               <a
-                onClick={() => scrollToSection("home")}
+                onClick={() => {
+                  scrollToSection("home");
+                  setIsMobileMenuOpen(false);
+                }}
                 className="cursor-pointer hover:text-blue-400 transition duration-300 flex items-center space-x-1"
               >
                 <HomeIcon className="w-5 h-5" />
                 <span>Home</span>
               </a>
               <a
-                onClick={() => scrollToSection("projects")}
-                className="cursor-pointer hover:text-blue-400 transition duration-300"
-              >
-                Projects
-              </a>
-              <a
-                onClick={() => scrollToSection("skills")}
+                onClick={() => {
+                  scrollToSection("about");
+
+                  setIsMobileMenuOpen(false);
+                }}
                 className="cursor-pointer hover:text-blue-400 transition duration-300"
               >
                 Skills
               </a>
               <a
-                onClick={() => scrollToSection("contact")}
+                onClick={() => {
+                  scrollToSection("projects");
+                  setIsMobileMenuOpen(false);
+                }}
+                className="cursor-pointer hover:text-blue-400 transition duration-300"
+              >
+                Projects
+              </a>
+              <a
+                onClick={() => scrollToSection("about")}
+                className="cursor-pointer hover:text-blue-400 transition duration-300"
+              >
+                {" "}
+                Skills{" "}
+              </a>
+              <a
+                onClick={() => {
+                  scrollToSection("contact");
+                  setIsMobileMenuOpen(false);
+                }}
                 className="cursor-pointer hover:text-blue-400 transition duration-300"
               >
                 Connect with me
