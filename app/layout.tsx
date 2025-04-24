@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@fortawesome/fontawesome-svg-core/styles.css"; // Import FontAwesome CSS
 import { config } from "@fortawesome/fontawesome-svg-core"; // Configure FontAwesome
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"; // ✅ Add this line
 
 // Custom fonts
 const geistSans = Geist({
@@ -30,10 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
+        <Analytics /> {/* ✅ Drop the analytics component here */}
       </body>
     </html>
   );
