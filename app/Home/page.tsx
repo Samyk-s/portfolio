@@ -114,7 +114,7 @@ export default function Home() {
 
           <div className="flex justify-center md:justify-start mt-6">
             <a
-              href="/SamyakBajracharya_CV.pdf"
+              href="/SamyakBajracharya_Frontend_CV.pdf"
               className="inline-flex items-center gap-2 px-6 py-2 ml-[300px] text-white bg-blue-600 hover:bg-red-700 rounded transition"
               target="_blank"
               rel="noopener noreferrer"
