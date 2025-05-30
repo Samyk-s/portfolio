@@ -12,7 +12,7 @@ export default function Projects() {
       imageSrc: "/project2.png",
       link: "https://ecommerce-coral-five.vercel.app/",
     },
-    { heading: "AI trash classifier", imageSrc: "/project3.png", link: "https://trash-classifier-ai.vercel.app/" },
+    { heading: "AI trash classifier", imageSrc: "/project3.png", link: "https://trashout-delta.vercel.app/" },
     { heading: "Portfolio", imageSrc: "/project4.png", link: "https://samyakbajr.vercel.app/" },
   ];
 
