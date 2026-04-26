@@ -27,46 +27,65 @@ const orbitItems: LogoItem[] = [
 ];
 
 export default function TechOrbit() {
-  const [positions, setPositions] = useState<Position[]>([]); // Use the Position type for state
+  const [positions, setPositions] = useState<Position[]>([]);
+  const [containerSize, setContainerSize] = useState(500);
 
   useEffect(() => {
-    // Run only on client side
-    const updatedPositions = orbitItems.map((item, i) => {
-      const angle = (i / orbitItems.length) * 360;
-      const radius = 200; // Adjust radius as needed
-      const rad = (angle * Math.PI) / 180;
-      const x = radius * Math.cos(rad);
-      const y = radius * Math.sin(rad);
+    const updateOrbit = () => {
+      const width = window.innerWidth;
+      let radius: number;
+      let size: number;
 
-      return { x, y }; // Return position object with x and y
-    });
+      if (width < 480) {
+        radius = 100;
+        size = 260;
+      } else if (width < 768) {
+        radius = 140;
+        size = 340;
+      } else {
+        radius = 200;
+        size = 500;
+      }
 
-    setPositions(updatedPositions); // Set the calculated positions after mount
-  }, []); // Empty dependency array ensures this effect runs only once on mount
+      setContainerSize(size);
+      setPositions(
+        orbitItems.map((_, i) => {
+          const angle = (i / orbitItems.length) * 360;
+          const rad = (angle * Math.PI) / 180;
+          return { x: radius * Math.cos(rad), y: radius * Math.sin(rad) };
+        })
+      );
+    };
+
+    updateOrbit();
+    window.addEventListener("resize", updateOrbit);
+    return () => window.removeEventListener("resize", updateOrbit);
+  }, []);
 
   return (
-    <div className="relative h-[1276px] flex flex-col items-center justify-center bg-black text-white px-6">
-      {/* Added heading */}
-      <h1 className="text-5xl font-bold mb-5 text-center">
+    <div className="relative min-h-screen flex flex-col items-center justify-center bg-black text-white px-4 sm:px-6 py-16">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 text-center">
         That is How I <span className="text-blue-400">Do It</span>
       </h1>
-      <p className="text-2xl mt-[25px] text-center mb-[150px]">
+      <p className="text-lg sm:text-xl md:text-2xl mt-4 text-center mb-16 sm:mb-24 md:mb-[150px] max-w-xl">
         This is my digital toolkit — the stuff I love and trust to build cool
         things.
       </p>
 
-      {/* Removed unnecessary nested div */}
-      <div className="relative w-[500px] h-[500px]">
-        {/* Center - Git & CI/CD */}
-        <div className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center p-6 rounded-md shadow-lg">
+      <div
+        className="relative flex-shrink-0"
+        style={{ width: containerSize, height: containerSize }}
+      >
+        {/* Center logo */}
+        <div className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center p-4 rounded-md shadow-lg">
           <img
             src="/logos/githublogo.jpg"
             alt="GitHub"
-            className="h-16 w-16 mb-3"
+            className="h-10 w-10 sm:h-16 sm:w-16 mb-3"
           />
         </div>
 
-        {/* Orbit */}
+        {/* Orbit ring */}
         <div className="absolute inset-0 animate-spin-slow rounded-full border border-white/10">
           {positions.map((pos, i) => (
             <div
@@ -81,7 +100,7 @@ export default function TechOrbit() {
               <img
                 src={orbitItems[i].src}
                 alt={orbitItems[i].alt}
-                className="h-14 w-14 bg-white/20 p-2 rounded-full shadow-md"
+                className="h-8 w-8 sm:h-11 sm:w-11 md:h-14 md:w-14 bg-white/20 p-1 sm:p-2 rounded-full shadow-md"
               />
             </div>
           ))}

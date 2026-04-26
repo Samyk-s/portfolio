@@ -4,7 +4,6 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudArrowDown } from "@fortawesome/free-solid-svg-icons";
 
-// React Icons
 import { HiOutlineDeviceMobile } from "react-icons/hi";
 import { FaReact, FaHtml5, FaGithub, FaHandshake } from "react-icons/fa";
 import { MdOutlineBugReport, MdDashboardCustomize } from "react-icons/md";
@@ -27,9 +26,9 @@ export default function Home() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-blend-multiply bg-black/60 z-0"
         style={{ backgroundImage: "url('/bgimg.png')" }}
       />
-      <div className="relative z-10 flex flex-col md:flex-row items-center ml-[50px] md:items-start w-full px-[20px] md:px-[50px]">
+      <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start w-full px-4 md:px-[50px]">
         {/* Profile Image */}
-        <div className="w-60 h-60 relative mb-4 mt-[150px] md:mb-0 md:mr-8 rounded-full overflow-hidden">
+        <div className="w-40 h-40 md:w-60 md:h-60 relative mb-4 mt-[80px] md:mt-[150px] md:mb-0 md:mr-8 rounded-full overflow-hidden flex-shrink-0">
           <Image
             src="/profile.jpg"
             alt="Profile Picture"
@@ -38,12 +37,12 @@ export default function Home() {
           />
         </div>
 
-        <div className="text-center md:text-left mt-[10px] ml-[150px] bg-opacity-0 p-6 rounded w-[950px]">
-          <h1 className="text-4xl font-bold mb-7 ml-[150px] text-white">
+        <div className="text-center md:text-left mt-4 md:mt-[10px] md:ml-[50px] bg-opacity-0 p-4 md:p-6 rounded w-full max-w-[950px]">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-7 text-white">
             Samyak Bajracharya
           </h1>
 
-          <p className="text-2xl font-semibold mb-4 text-white">
+          <p className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 text-white">
             FrontEnd Engineer | So what can I do for you?
           </p>
 
@@ -97,7 +96,7 @@ export default function Home() {
               <TimelinePoint icon={FaHandshake} />
               <TimelineContent>
                 <TimelineBody className="text-white">
-                  Let’s Connect — Whether it’s tech talk, startup ideas, football banter, or a spontaneous collab — I’m in.
+                  Let's Connect — Whether it's tech talk, startup ideas, football banter, or a spontaneous collab — I'm in.
                 </TimelineBody>
               </TimelineContent>
             </TimelineItem>
@@ -115,7 +114,7 @@ export default function Home() {
           <div className="flex justify-center md:justify-start mt-6">
             <a
               href="/SamyakBajracharya_Frontend_CV.pdf"
-              className="inline-flex items-center gap-2 px-6 py-2 ml-[300px] text-white bg-blue-600 hover:bg-red-700 rounded transition"
+              className="inline-flex items-center gap-2 px-6 py-2 text-white bg-blue-600 hover:bg-red-700 rounded transition"
               target="_blank"
               rel="noopener noreferrer"
             >

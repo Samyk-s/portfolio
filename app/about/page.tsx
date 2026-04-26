@@ -36,7 +36,7 @@ function LogoRow({ title, items }: { title: string; items: LogoItem[] }) {
             key={idx}
             src={tech.src}
             alt={tech.alt}
-            className="h-20 w-auto bg-white/10 p-3 rounded-lg shadow-md"
+            className="h-14 sm:h-20 w-auto bg-white/10 p-2 sm:p-3 rounded-lg shadow-md"
           />
         ))}
       </div>
@@ -158,7 +158,7 @@ function Whattech() {
       />
 
       <div className="relative z-10 flex flex-col items-start text-white px-6 sm:px-12 lg:px-24 py-12 max-w-5xl w-full mx-auto">
-        <h1 className="text-5xl font-bold mb-10">What tech stack I use</h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10">What tech stack I use</h1>
         <Timeline>
           {categories.map((cat) => (
             <TimelineItem key={cat.title}>

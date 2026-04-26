@@ -11,11 +11,11 @@ export default function Mainpage() {
       <NavbarComp />
       <Home />
 
-      <div style={{ display: "flex" }}>
-        <div style={{ flex: 1 }} id="about">
+      <div className="flex flex-col md:flex-row">
+        <div className="w-full md:flex-1" id="about">
           <AboutPage />
         </div>
-        <div style={{ flex: 1 }} id="how">
+        <div className="w-full md:flex-1" id="how">
           <TechOrbit />
         </div>
       </div>

@@ -25,18 +25,18 @@ export default function Projects() {
       />
 
       {/* Content */}
-      <div className="relative z-10 py-10 px-[50px]">
-        <h2 className="text-4xl font-bold text-transparent bg-clip-text [background-image:linear-gradient(to_right,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)]">
+      <div className="relative z-10 py-10 px-4 sm:px-8 lg:px-[50px]">
+        <h2 className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text [background-image:linear-gradient(to_right,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)] mb-8">
           Projects
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
           {items.map((item, index) => (
             <div key={index} className="flex flex-col items-center">
               <h3 className="text-lg font-semibold mb-3">{item.heading}</h3>
 
               {/* Image Container with Hover Button */}
-              <div className="w-[450px] h-[300px] relative shadow-lg rounded-lg overflow-hidden group">
+              <div className="w-full max-w-[450px] h-[220px] sm:h-[280px] lg:h-[300px] relative shadow-lg rounded-lg overflow-hidden group">
                 <Image
                   src={item.imageSrc}
                   alt={item.heading}

@@ -2,107 +2,66 @@ import React from "react";
 import { FaLinkedin, FaGithub, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 export default function Contact() {
-  const styles: { [key: string]: React.CSSProperties } = {
-    footer: {
-      backgroundColor: "#222",
-      backgroundImage: "url(/navbg.png)",
-      backgroundSize: "cover",
-      color: "#fff",
-      padding: "10px 0",
-      textAlign: "center",
-      paddingTop: "80px",
-    },
-    container: {
-      width: "90%",
-      maxWidth: "1200px",
-      margin: "0 auto",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      flexWrap: "wrap", // ensures responsiveness
-    },
-    heading: {
-      fontSize: "26px",
-      color: "transparent",
-      background: "linear-gradient(45deg, #ff416c, #ff4b2b)",
-      backgroundClip: "text",
-      WebkitBackgroundClip: "text",
-      fontWeight: "bold",
-    },
-    socialLinks: {
-      display: "flex",
-      gap: "40px",
-      flexWrap: "wrap",
-      justifyContent: "center",
-    },
-    socialItem: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      textAlign: "center",
-    },
-    socialIcon: {
-      color: "#fff",
-      textDecoration: "none",
-    },
-    iconText: {
-      marginTop: "8px",
-      color: "#fff",
-      fontSize: "14px",
-    },
-  };
-
   return (
-    <footer id="contact" style={styles.footer}>
-      <div style={styles.container}>
-        <h4 style={styles.heading}>Connect with Me</h4>
-        <div style={styles.socialLinks}>
+    <footer
+      id="contact"
+      className="bg-[#222] bg-cover bg-center text-white pt-20 pb-4 text-center"
+      style={{ backgroundImage: "url(/navbg.png)" }}
+    >
+      <div className="w-[90%] max-w-[1200px] mx-auto flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-6 flex-wrap">
+        <h4 className="text-2xl font-bold bg-gradient-to-r from-[#ff416c] to-[#ff4b2b] bg-clip-text text-transparent">
+          Connect with Me
+        </h4>
+
+        <div className="flex flex-wrap gap-8 sm:gap-10 justify-center">
           {/* LinkedIn */}
-          <div style={styles.socialItem}>
+          <div className="flex flex-col items-center">
             <a
               href="https://www.linkedin.com/in/samyak-bajracharya-b3380028a"
               target="_blank"
               rel="noopener noreferrer"
-              style={styles.socialIcon}
+              className="text-white hover:text-blue-400 transition"
             >
               <FaLinkedin size={30} />
             </a>
-            <p style={styles.iconText}>LinkedIn</p>
+            <p className="mt-2 text-sm text-white">LinkedIn</p>
           </div>
 
           {/* GitHub */}
-          <div style={styles.socialItem}>
+          <div className="flex flex-col items-center">
             <a
               href="https://github.com/Samyk-s"
               target="_blank"
               rel="noopener noreferrer"
-              style={styles.socialIcon}
+              className="text-white hover:text-gray-400 transition"
             >
               <FaGithub size={30} />
             </a>
-            <p style={styles.iconText}>GitHub</p>
+            <p className="mt-2 text-sm text-white">GitHub</p>
           </div>
 
-          <div style={styles.socialItem}>
+          {/* WhatsApp */}
+          <div className="flex flex-col items-center">
             <a
               href="https://wa.me/9779808516437?text=Hi%20Samyak%2C%20I%20just%20saw%20your%20portfolio!"
               target="_blank"
               rel="noopener noreferrer"
-              style={styles.socialIcon}
+              className="text-white hover:text-green-400 transition"
             >
               <FaWhatsapp size={30} />
             </a>
-            <p style={styles.iconText}>+977 9808516437</p>
+            <p className="mt-2 text-sm text-white">+977 9808516437</p>
           </div>
-          <div style={styles.socialItem}>
+
+          {/* Email */}
+          <div className="flex flex-col items-center">
             <a
               href="mailto:samykbajr919@gmail.com?subject=Regarding%20My%20Portfolio"
-              style={styles.socialIcon}
+              className="text-white hover:text-red-400 transition"
             >
               <FaEnvelope size={30} />
             </a>
-
-            <p style={styles.iconText}>samykbajr919@gmail.com</p>
+            <p className="mt-2 text-sm text-white">samykbajr919@gmail.com</p>
           </div>
         </div>
       </div>
