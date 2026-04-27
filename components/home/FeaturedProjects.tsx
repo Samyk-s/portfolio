@@ -1,125 +1,92 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { featuredProjects } from "@/data/projects";
 import SectionReveal from "@/components/ui/SectionReveal";
+import ProjectCard from "@/components/projects/ProjectCard";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import { FiGithub, FiExternalLink } from "react-icons/fi";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function FeaturedProjects() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".project-card",
+        { opacity: 0, y: 38, scale: 0.96, rotateX: -8 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          rotateX: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: {
+            amount: 0.32,
+            grid: "auto",
+            from: "start",
+          },
+          scrollTrigger: {
+            trigger: section,
+            start: "top 68%",
+          },
+        }
+      );
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="py-24 md:py-32 relative z-10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Section header */}
+    <section ref={sectionRef} className="relative z-10 py-24 md:py-32">
+      <div className="absolute left-8 top-24 h-56 w-56 rounded-full bg-indigo-400/10 blur-3xl" />
+      <div className="absolute bottom-16 right-12 h-64 w-64 rounded-full bg-cyan-300/10 blur-3xl" />
+
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <SectionReveal className="mb-16">
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase mb-3 text-indigo-500">
+          <p className="mb-4 inline-flex rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-indigo-500">
             Selected Work
           </p>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <h2
-              className="text-3xl sm:text-4xl font-bold"
-              style={{ color: "var(--fg)" }}
-            >
-              Projects I&apos;m proud of
-            </h2>
+          <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+            <div>
+              <h2
+                className="max-w-2xl text-3xl font-black leading-tight tracking-[-0.04em] sm:text-5xl"
+                style={{ color: "var(--fg)" }}
+              >
+                Featured projects, same cards as the full gallery.
+              </h2>
+              <p className="mt-4 max-w-xl text-base leading-relaxed" style={{ color: "var(--fg-muted)" }}>
+                Start here for the highlights. These use the exact project card
+                component from the main projects page, including the same hover
+                tilt, glow, metadata, and case-study link.
+              </p>
+            </div>
             <Link
               href="/projects"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-500 hover:text-indigo-400 transition-colors"
+              className="inline-flex items-center gap-2 rounded-2xl border px-4 py-3 text-sm font-black text-indigo-500 transition-all hover:-translate-y-1"
+              style={{ borderColor: "var(--border)", background: "var(--bg-card)" }}
             >
               All projects
-              <ArrowRightIcon className="w-3.5 h-3.5" />
+              <ArrowRightIcon className="h-4 w-4" />
             </Link>
           </div>
         </SectionReveal>
 
-        {/* Project cards */}
-        <SectionReveal
-          stagger
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
-        >
-          {featuredProjects.map((project) => (
-            <article
-              key={project.id}
-              className="card-hover group rounded-2xl overflow-hidden flex flex-col relative"
-              style={{ background: "var(--bg-card)" }}
-            >
-              {/* Gradient header */}
-              <div
-                className={`relative h-44 bg-gradient-to-br ${project.gradient} flex items-end p-5 shrink-0`}
-              >
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-300" />
-                <div className="relative flex gap-2 z-10">
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="w-8 h-8 bg-white/20 hover:bg-white/35 backdrop-blur-sm rounded-lg flex items-center justify-center text-white transition-all duration-200"
-                      aria-label="GitHub"
-                    >
-                      <FiGithub className="w-3.5 h-3.5" />
-                    </a>
-                  )}
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="w-8 h-8 bg-white/20 hover:bg-white/35 backdrop-blur-sm rounded-lg flex items-center justify-center text-white transition-all duration-200"
-                      aria-label="Live site"
-                    >
-                      <FiExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="flex flex-col flex-1 p-5 gap-3">
-                <div>
-                  <h3
-                    className="text-base font-bold mb-1.5 group-hover:text-indigo-500 transition-colors duration-200"
-                    style={{ color: "var(--fg)" }}
-                  >
-                    {project.title}
-                  </h3>
-                  <p
-                    className="text-sm leading-relaxed line-clamp-2"
-                    style={{ color: "var(--fg-muted)" }}
-                  >
-                    {project.shortDescription}
-                  </p>
-                </div>
-
-                {/* Tech stack */}
-                <div
-                  className="flex flex-wrap gap-1.5 mt-auto pt-3"
-                  style={{ borderTop: "1px solid var(--border)" }}
-                >
-                  {project.techStack.slice(0, 4).map((tech) => (
-                    <span key={tech} className="tag text-[10px] px-2 py-0.5">
-                      {tech}
-                    </span>
-                  ))}
-                  {project.techStack.length > 4 && (
-                    <span className="tag text-[10px] px-2 py-0.5">
-                      +{project.techStack.length - 4}
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {/* Full-card overlay link */}
-              <Link
-                href={`/projects/${project.slug}`}
-                className="absolute inset-0 z-[1]"
-                aria-label={`View ${project.title}`}
-              />
-            </article>
+        <div className="grid gap-5 [perspective:1200px] sm:grid-cols-2 lg:grid-cols-3">
+          {featuredProjects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
-        </SectionReveal>
+        </div>
       </div>
     </section>
   );
