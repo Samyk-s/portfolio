@@ -1,126 +1,142 @@
-import { Experience, Education, SkillCategory } from "@/types";
+import { Education, Experience, SkillCategory } from "@/types";
 
 export const experiences: Experience[] = [
   {
     id: "1",
-    company: "Rewasoft",
+    company: "Rewasoft Pvt. Ltd.",
     role: "Frontend Engineer",
     type: "Full-time",
-    period: "2023 – Present",
+    period: "05/2025 - 05/2026",
     location: "Kathmandu, Nepal",
     description:
-      "Building scalable frontend systems and SaaS products for enterprise clients across Nepal and Southeast Asia.",
+      "Built production-grade React and Next.js applications across enterprise CRM systems, travel platforms, and hospital ecosystem products.",
     achievements: [
-      "Led frontend architecture for a flagship SaaS product serving 2,000+ active users",
-      "Reduced initial bundle size by 45% via code splitting, tree shaking, and lazy loading",
-      "Built a shared component library (50+ components) adopted across 3 company products",
-      "Improved Core Web Vitals: LCP 4.2s → 1.8s, CLS 0.22 → 0.04 for the main product",
-      "Mentored 2 junior developers on React performance patterns and TypeScript best practices",
+      "Built and maintained a production CRM system with 8+ modules including leads, contacts, accounts, tasks, and campaigns to support core business workflows.",
+      "Designed reusable React, Redux, and TypeScript component architecture that reduced duplication and made feature development easier to scale.",
+      "Integrated 15+ Swagger-documented REST APIs and implemented state management with Redux Toolkit and React Query to improve data flow and reduce redundant API calls.",
+      "Developed and deployed full-stack applications with Next.js and NestJS, including travel and hospital platforms with responsive UI, SEO, and production deployment workflows.",
+      "Collaborated with backend, product, and design teams on API integration, UI implementation, code reviews, and end-to-end feature delivery.",
     ],
     techStack: [
+      "React.js",
       "Next.js",
       "TypeScript",
       "Redux Toolkit",
       "React Query",
-      "TailwindCSS",
+      "Tailwind CSS",
+      "REST APIs",
+      "NestJS",
       "Docker",
       "Vercel",
     ],
     current: true,
   },
+];
+
+export const professionalProjects = [
   {
-    id: "2",
-    company: "Freelance",
-    role: "Frontend Developer",
-    type: "Freelance",
-    period: "2021 – 2023",
-    location: "Remote · Worldwide",
+    title: "Enterprise CRM System",
+    tech: "React.js, TypeScript, Redux Toolkit, React Query, REST APIs",
     description:
-      "Delivered 15+ web applications for startups and SMBs across e-commerce, fintech, and EdTech — from MVPs to full product launches.",
-    achievements: [
-      "Built and shipped 15+ production web apps for clients in the US, UK, and Australia",
-      "Grew a client's organic traffic by 300% through technical SEO and Core Web Vitals optimization",
-      "Developed custom CMS integrations with Contentful, Sanity, and Strapi",
-      "Maintained 5-star client ratings with consistent on-time delivery",
-    ],
-    techStack: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "TailwindCSS",
-      "Firebase",
-      "REST APIs",
-    ],
+      "Built a production CRM system with 8+ modules for leads, contacts, accounts, tasks, and campaigns, with reusable components and optimized state management across core business workflows.",
   },
   {
-    id: "3",
-    company: "Open Source & Self-Directed",
-    role: "Independent Developer",
-    type: "Self-directed",
-    period: "2020 – 2021",
-    location: "Kathmandu, Nepal",
+    title: "8000Club - 3D Travel Experience Platform",
+    tech: "Next.js, Three.js, Blender, GSAP",
     description:
-      "Intensive self-study of modern web development while contributing to open source projects and building personal projects.",
-    achievements: [
-      "Completed 500+ hours of structured coursework in React, TypeScript, and Node.js",
-      "Contributed to 3 open source React component libraries on GitHub",
-      "Built 10+ personal projects spanning full-stack web and CLI tooling",
-      "Earned Meta Frontend Developer Professional Certificate (Coursera)",
-    ],
-    techStack: ["React", "JavaScript", "Node.js", "CSS", "Git"],
+      "Engineered an immersive 3D travel platform with GIS-based mountain models, optimized Blender assets, Three.js rendering, GSAP storytelling, and bundle-aware asset loading.",
+  },
+  {
+    title: "Full-Stack Travel Booking Platform",
+    tech: "Next.js, NestJS, MySQL, Docker",
+    description:
+      "Developed authentication, booking workflows, user dashboards, loyalty points, frontend-backend API integration, production deployment, validation, and resilient booking management logic.",
+  },
+  {
+    title: "Tilganga Hospital Ecosystem Platform",
+    tech: "Next.js, Tailwind CSS, REST APIs",
+    description:
+      "Developed academic, informational, and booking platforms by converting designs into responsive Next.js components with strong usability, accessibility, SEO, and API integration consistency.",
   },
 ];
 
 export const education: Education[] = [
   {
-    institution: "Tribhuvan University",
-    degree: "Bachelor of Science in Computer Science & Information Technology",
-    period: "2019 – 2023",
+    institution: "Nepal College of Information Technology (NCIT)",
+    degree: "Bachelor in Computer Engineering",
+    period: "Pokhara University",
+    location: "Lalitpur, Nepal",
+    details:
+      "Studied computer engineering with a focus on software development, data structures, systems, and practical web application engineering.",
+  },
+  {
+    institution: "Trinity International College",
+    degree: "Higher Secondary Education - Science",
+    period: "High School",
     location: "Kathmandu, Nepal",
     details:
-      "Focus on software engineering, algorithms, data structures, and web technologies. Final year project: a real-time collaboration platform built with React and Node.js.",
+      "Completed a science background that built the analytical and technical foundation for engineering and software development.",
+  },
+];
+
+export const certifications = [
+  {
+    institution: "Broadway Infosys",
+    title: "React.js Training",
+    period: "11/2024 - 01/2025",
+    credential: "Credential ID: B21372",
+    details:
+      "Completed focused React.js training covering component architecture, hooks, state management, API integration, and production-oriented frontend practices.",
+  },
+];
+
+export const officeTechStack = [
+  {
+    label: "Frontend Development",
+    icon: "react",
+    skills: ["React.js", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS"],
+  },
+  {
+    label: "State & Data Handling",
+    icon: "data",
+    skills: ["Redux Toolkit", "React Query", "React Hooks", "Context API", "REST APIs", "Swagger"],
+  },
+  {
+    label: "Tools & Deployment",
+    icon: "tools",
+    skills: ["Git", "GitHub", "Docker", "Vercel", "Postman", "Chrome DevTools", "Lighthouse"],
+  },
+  {
+    label: "Advanced & Specialized",
+    icon: "special",
+    skills: ["Three.js", "GSAP", "Blender", "Performance Optimization", "SEO Implementation"],
   },
 ];
 
 export const skillCategories: SkillCategory[] = [
   {
     label: "Frontend",
-    icon: "🖥️",
-    skills: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "JavaScript",
-      "HTML5",
-      "CSS3",
-      "TailwindCSS",
-    ],
+    icon: "UI",
+    skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "TailwindCSS"],
   },
   {
     label: "State & Data",
-    icon: "⚡",
-    skills: [
-      "Redux Toolkit",
-      "React Query",
-      "Zustand",
-      "SWR",
-      "REST APIs",
-      "GraphQL",
-    ],
+    icon: "API",
+    skills: ["Redux Toolkit", "React Query", "React Hooks", "Context API", "REST APIs", "Swagger"],
   },
   {
     label: "Animation & 3D",
-    icon: "✨",
-    skills: ["GSAP", "Framer Motion", "Three.js", "CSS Animations", "Lottie"],
+    icon: "3D",
+    skills: ["GSAP", "Three.js", "Blender", "CSS Animations"],
   },
   {
     label: "Tooling & DevOps",
-    icon: "🛠️",
-    skills: ["Docker", "Vercel", "Git", "GitHub Actions", "Webpack", "Vite"],
+    icon: "OPS",
+    skills: ["Docker", "Vercel", "Git", "GitHub", "Postman", "Lighthouse"],
   },
   {
-    label: "Backend & DB",
-    icon: "🗄️",
-    skills: ["Node.js", "Prisma", "PostgreSQL", "Supabase", "Firebase", "Redis"],
+    label: "Backend Coordination",
+    icon: "BE",
+    skills: ["Node.js", "NestJS", "MySQL", "API Integration", "Deployment"],
   },
 ];

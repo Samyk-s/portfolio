@@ -1,5 +1,10 @@
 import SectionReveal from "@/components/ui/SectionReveal";
-import { experiences, education } from "@/data/experience";
+import {
+  certifications,
+  education,
+  experiences,
+  professionalProjects,
+} from "@/data/experience";
 
 export default function Timeline() {
   return (
@@ -114,6 +119,38 @@ export default function Timeline() {
         </div>
       </SectionReveal>
 
+      {/* Professional projects */}
+      <SectionReveal>
+        <p className="text-xs font-semibold tracking-[0.15em] uppercase mb-8 text-indigo-500">
+          Professional Projects / Key Contributions
+        </p>
+        <div className="grid md:grid-cols-2 gap-4">
+          {professionalProjects.map((project) => (
+            <article
+              key={project.title}
+              className="rounded-2xl p-6 card-hover"
+              style={{ background: "var(--bg-card)" }}
+            >
+              <h3 className="text-base font-bold" style={{ color: "var(--fg)" }}>
+                {project.title}
+              </h3>
+              <p
+                className="text-xs font-semibold mt-1"
+                style={{ color: "var(--accent)" }}
+              >
+                {project.tech}
+              </p>
+              <p
+                className="text-sm mt-3 leading-relaxed"
+                style={{ color: "var(--fg-muted)" }}
+              >
+                {project.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </SectionReveal>
+
       {/* Education */}
       <SectionReveal>
         <p className="text-xs font-semibold tracking-[0.15em] uppercase mb-8 text-indigo-500">
@@ -157,6 +194,54 @@ export default function Timeline() {
               style={{ color: "var(--fg-muted)" }}
             >
               {edu.details}
+            </p>
+          </div>
+        ))}
+      </SectionReveal>
+
+      {/* Certifications */}
+      <SectionReveal>
+        <p className="text-xs font-semibold tracking-[0.15em] uppercase mb-8 text-indigo-500">
+          Certifications / Training
+        </p>
+        {certifications.map((cert) => (
+          <div
+            key={cert.title}
+            className="rounded-2xl p-6 card-hover"
+            style={{ background: "var(--bg-card)" }}
+          >
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+              <div>
+                <h3
+                  className="text-base font-bold"
+                  style={{ color: "var(--fg)" }}
+                >
+                  {cert.title}
+                </h3>
+                <p
+                  className="text-sm font-semibold mt-0.5"
+                  style={{ color: "var(--accent)" }}
+                >
+                  {cert.institution}
+                </p>
+              </div>
+              <div className="text-right shrink-0">
+                <p
+                  className="text-xs font-mono font-medium"
+                  style={{ color: "var(--fg-muted)" }}
+                >
+                  {cert.period}
+                </p>
+                <p className="text-xs mt-0.5" style={{ color: "var(--fg-muted)" }}>
+                  {cert.credential}
+                </p>
+              </div>
+            </div>
+            <p
+              className="text-sm mt-3 leading-relaxed"
+              style={{ color: "var(--fg-muted)" }}
+            >
+              {cert.details}
             </p>
           </div>
         ))}
