@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import MagneticButton from "@/components/ui/MagneticButton";
-import { CheckCircleIcon } from "@heroicons/react/24/outline";
+import { CheckCircleIcon, PaperAirplaneIcon } from "@heroicons/react/24/outline";
 import { siteConfig } from "@/lib/utils";
 
 interface FormState {
@@ -110,9 +110,36 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl p-6 sm:p-8 space-y-4 card-hover"
+      className="rounded-2xl p-6 sm:p-8 space-y-5 card-hover"
       style={{ background: "var(--bg-card)" }}
     >
+      <div className="flex flex-col gap-4 border-b pb-5 sm:flex-row sm:items-start sm:justify-between" style={{ borderColor: "var(--border)" }}>
+        <div>
+          <p
+            className="text-[10px] font-semibold uppercase tracking-wide"
+            style={{ color: "var(--fg-muted)" }}
+          >
+            Message
+          </p>
+          <h2 className="mt-1 text-2xl font-bold" style={{ color: "var(--fg)" }}>
+            Tell me what you&apos;re building.
+          </h2>
+          <p
+            className="mt-2 max-w-xl text-sm leading-relaxed"
+            style={{ color: "var(--fg-muted)" }}
+          >
+            A few details are enough. I&apos;ll read it properly and reply with a
+            clear next step.
+          </p>
+        </div>
+        <div
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
+          style={{ background: "var(--accent-soft)" }}
+        >
+          <PaperAirplaneIcon className="h-5 w-5" style={{ color: "var(--accent)" }} />
+        </div>
+      </div>
+
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label
@@ -233,7 +260,8 @@ export default function ContactForm() {
         className="w-full justify-center"
         disabled={loading}
       >
-        {loading ? "Sending..." : "Send Message →"}
+        <PaperAirplaneIcon className="h-4 w-4" />
+        {loading ? "Sending..." : "Send Message"}
       </MagneticButton>
 
       <p className="text-xs leading-relaxed" style={{ color: "var(--fg-muted)" }}>

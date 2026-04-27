@@ -14,6 +14,7 @@ export const siteConfig = {
   role: "Frontend Engineer",
   email: "samykbajr919@gmail.com",
   formSubmitToken: "36633eaf9122298dad457da49df53a86",
+  whatsapp: "9779808516437",
   location: "Kathmandu, Nepal",
   github: "https://github.com/Samyk-s",
   linkedin: "https://www.linkedin.com/in/samyak-bajracharya-b3380028a",
