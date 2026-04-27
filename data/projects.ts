@@ -1,0 +1,261 @@
+import { Project } from "@/types";
+
+export const projects: Project[] = [
+  {
+    id: "1",
+    slug: "taskflow-pro",
+    title: "TaskFlow Pro",
+    shortDescription:
+      "A real-time project management SaaS with Kanban boards, team collaboration, and sprint analytics. Helped beta teams cut delivery time by 30%.",
+    overview:
+      "TaskFlow Pro is a full-featured project management platform built for distributed engineering teams. Inspired by the simplicity of Trello and the power of Linear, it delivers real-time collaborative workspaces with Kanban boards, sprint planning, and performance dashboards. Used by 50+ beta users who reported a 30% reduction in project delivery time.",
+    role: "Lead Frontend Engineer",
+    timeline: "Jan 2024 – Apr 2024 · 4 months",
+    techStack: [
+      "Next.js 14",
+      "TypeScript",
+      "Redux Toolkit",
+      "React Query",
+      "TailwindCSS",
+      "Supabase",
+      "Vercel",
+    ],
+    features: [
+      "Real-time Kanban board with drag-and-drop task management",
+      "Team workspaces with role-based access control (admin, member, viewer)",
+      "Sprint planning with velocity tracking and burndown charts",
+      "Dashboard with project analytics and performance metrics",
+      "Email notifications and in-app notification center",
+      "Dark/light mode with system preference detection",
+    ],
+    challenges: [
+      "Synchronizing real-time board state across 10+ concurrent users without race conditions",
+      "Building a mobile-friendly drag-and-drop system that feels native on touch devices",
+      "Optimizing re-renders in a deeply nested board component tree with 100+ cards",
+    ],
+    solutions: [
+      "Implemented optimistic updates with Supabase Realtime and last-write-wins conflict resolution",
+      "Built a unified pointer events abstraction layer supporting touch, mouse, and stylus input",
+      "Used React.memo, useCallback, and selector memoization to reduce re-renders by 70%",
+    ],
+    screenshots: [],
+    liveUrl: "https://taskflow-pro.vercel.app",
+    githubUrl: "https://github.com/samyk-s/taskflow-pro",
+    featured: true,
+    gradient: "from-violet-500 via-purple-500 to-indigo-600",
+  },
+  {
+    id: "2",
+    slug: "shopnest",
+    title: "ShopNest",
+    shortDescription:
+      "A full-stack e-commerce platform with Stripe payments, inventory management, and an admin dashboard. Handles 1,000+ SKUs with sub-second load times.",
+    overview:
+      "ShopNest is a production-grade e-commerce platform focused on performance and developer experience. It features server-side rendering for SEO, edge caching for speed, and a powerful admin panel. Lighthouse score of 98/100 and sub-1s LCP on a product catalog of 1,000+ items.",
+    role: "Full-Stack Developer",
+    timeline: "Aug 2023 – Dec 2023 · 5 months",
+    techStack: [
+      "Next.js 14",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Stripe",
+      "TailwindCSS",
+      "Vercel",
+      "AWS S3",
+    ],
+    features: [
+      "Product catalog with advanced filtering, search, and faceted navigation",
+      "Stripe Checkout + webhooks for secure, idempotent payment processing",
+      "Admin dashboard for product, order, and inventory management",
+      "Image upload to AWS S3 with automatic WebP optimization",
+      "Order tracking with real-time status updates via email",
+      "SEO-optimized product pages with JSON-LD structured data",
+    ],
+    challenges: [
+      "Preventing inventory overselling during concurrent flash sale purchases",
+      "Implementing fast full-text search across 1,000+ SKUs with filters",
+      "Securing webhook endpoints against replay attacks and duplicate processing",
+    ],
+    solutions: [
+      "Used Prisma transactions with row-level locking for atomic inventory updates",
+      "Built full-text search with PostgreSQL tsvector indexes, achieving <50ms queries",
+      "Implemented idempotency keys, Stripe webhook signature verification, and event deduplication",
+    ],
+    screenshots: [],
+    liveUrl: "https://shopnest.vercel.app",
+    githubUrl: "https://github.com/samyk-s/shopnest",
+    featured: true,
+    gradient: "from-emerald-400 via-teal-500 to-cyan-600",
+  },
+  {
+    id: "3",
+    slug: "analytics-edge",
+    title: "AnalyticsEdge",
+    shortDescription:
+      "An interactive data visualization dashboard with 3D globe, real-time charts, and custom reporting. Processes 50K+ data points at 60fps.",
+    overview:
+      "AnalyticsEdge transforms raw business data into actionable insights through interactive visualizations. It features a Three.js-powered 3D data globe, real-time streaming charts, and a drag-and-drop report builder. Used by 3 startups to replace expensive BI tools.",
+    role: "Frontend Engineer",
+    timeline: "Mar 2023 – Jul 2023 · 5 months",
+    techStack: [
+      "React",
+      "TypeScript",
+      "Three.js",
+      "D3.js",
+      "React Query",
+      "WebSocket",
+      "TailwindCSS",
+    ],
+    features: [
+      "Interactive 3D globe visualization powered by Three.js",
+      "Real-time streaming charts with WebSocket data feeds",
+      "Drag-and-drop dashboard builder with 30+ chart types",
+      "Export to PDF/CSV with custom branding and styling",
+      "Role-based multi-tenant architecture with white-labeling",
+      "Progressive loading for datasets up to 500K rows",
+    ],
+    challenges: [
+      "Rendering 50K+ data points without dropping below 60fps on mid-range devices",
+      "Building a generic chart API that unifies 30+ chart types with a consistent interface",
+      "Handling WebGL unavailability on older devices gracefully",
+    ],
+    solutions: [
+      "Used Three.js instanced meshes, frustum culling, and LOD for batched geometry rendering",
+      "Designed a composable chart abstraction layer with D3 as the rendering primitive",
+      "Implemented progressive enhancement with Canvas 2D fallback via feature detection",
+    ],
+    screenshots: [],
+    liveUrl: "https://analytics-edge.vercel.app",
+    githubUrl: "https://github.com/samyk-s/analytics-edge",
+    featured: false,
+    gradient: "from-blue-500 via-indigo-500 to-violet-600",
+  },
+  {
+    id: "4",
+    slug: "cryptotracer",
+    title: "CryptoTracer",
+    shortDescription:
+      "A real-time cryptocurrency portfolio tracker with live prices, alerts, and portfolio analytics. Tracking 500+ coins for 200+ active users.",
+    overview:
+      "CryptoTracer is a real-time crypto portfolio management tool that aggregates market data from CoinGecko API. Users can build custom portfolios, track P&L in real-time, and set price alerts delivered via WebSocket push notifications. Grew to 200+ active users organically.",
+    role: "Frontend Engineer",
+    timeline: "Oct 2022 – Jan 2023 · 4 months",
+    techStack: [
+      "React",
+      "TypeScript",
+      "React Query",
+      "Zustand",
+      "Recharts",
+      "TailwindCSS",
+      "WebSocket",
+    ],
+    features: [
+      "Live price tracking for 500+ cryptocurrencies with <500ms update latency",
+      "Portfolio builder with real-time P&L, ROI, and performance analytics",
+      "Price alert system with WebSocket push and email fallback",
+      "News feed aggregated from 10+ crypto sources with sentiment tags",
+      "Historical price charts with 1D, 7D, 1M, 1Y, and ALL timeframes",
+      "Dark mode optimized for long trading sessions",
+    ],
+    challenges: [
+      "Managing WebSocket connections and preventing stale data after tab switches",
+      "Handling CoinGecko API rate limits while keeping 500+ coin prices fresh",
+    ],
+    solutions: [
+      "Built a connection manager with Page Visibility API integration and exponential backoff reconnection",
+      "Implemented a tiered polling strategy: active coins poll at 10s, background at 60s",
+    ],
+    screenshots: [],
+    liveUrl: "https://cryptotracer.vercel.app",
+    githubUrl: "https://github.com/samyk-s/cryptotracer",
+    featured: false,
+    gradient: "from-amber-400 via-orange-500 to-red-500",
+  },
+  {
+    id: "5",
+    slug: "devconnect",
+    title: "DevConnect",
+    shortDescription:
+      "A developer community platform with real-time chat, syntax-highlighted code sharing, and mentorship matching. 500+ registered developers.",
+    overview:
+      "DevConnect is a niche social platform where developers find mentors, share knowledge, and collaborate on code in real-time. It features Socket.io-powered group rooms, syntax-highlighted snippet sharing with language detection, and a skill-weighted mentorship matching algorithm.",
+    role: "Full-Stack Developer",
+    timeline: "Jun 2022 – Sep 2022 · 4 months",
+    techStack: [
+      "Next.js 13",
+      "TypeScript",
+      "Socket.io",
+      "Prisma",
+      "PostgreSQL",
+      "TailwindCSS",
+      "Redis",
+    ],
+    features: [
+      "Real-time group and direct messaging with typing indicators",
+      "Syntax-highlighted code blocks with automatic language detection",
+      "Mentorship matching based on skills, goals, and availability",
+      "Developer profiles with GitHub integration and contribution graphs",
+      "Job board with company profiles and application tracking",
+      "Redis-cached API responses achieving sub-50ms response times",
+    ],
+    challenges: [
+      "Scaling Socket.io connections for group rooms with 100+ concurrent users",
+      "Building a fair and accurate mentorship matching algorithm",
+    ],
+    solutions: [
+      "Used Redis pub/sub with the Socket.io Redis adapter for horizontal scaling",
+      "Implemented a skill-weighted cosine similarity algorithm with recency bias scoring",
+    ],
+    screenshots: [],
+    liveUrl: "https://devconnect.vercel.app",
+    githubUrl: "https://github.com/samyk-s/devconnect",
+    featured: false,
+    gradient: "from-pink-500 via-rose-500 to-red-600",
+  },
+  {
+    id: "6",
+    slug: "weatherwave",
+    title: "WeatherWave",
+    shortDescription:
+      "A stunning weather app with a Three.js 3D wind globe, animated forecasts, and hyperlocal data. Perfect Lighthouse score on mobile.",
+    overview:
+      "WeatherWave goes beyond basic forecasts with a Three.js rendered 3D earth showing real-time global wind patterns, GSAP-animated weather transitions, and hyperlocal 7-day forecasts. Achieves a 100/100 Lighthouse performance score on mobile.",
+    role: "Frontend Engineer",
+    timeline: "Feb 2022 – Apr 2022 · 3 months",
+    techStack: [
+      "React",
+      "TypeScript",
+      "Three.js",
+      "GSAP",
+      "OpenWeather API",
+      "TailwindCSS",
+    ],
+    features: [
+      "3D globe wind map with particle systems via Three.js custom shaders",
+      "Animated weather transitions with GSAP for day/night and condition changes",
+      "Hyperlocal 7-day forecast with hourly breakdown and precipitation radar",
+      "Air quality index, UV index, and pollen count tracking",
+      "Favorite locations with offline data caching via Service Worker",
+      "Aurora-inspired dark theme with dynamic background based on conditions",
+    ],
+    challenges: [
+      "Rendering smooth wind particle simulations at 60fps across all device tiers",
+      "Calculating accurate solar position for the day/night globe texture blending",
+    ],
+    solutions: [
+      "Used instanced mesh rendering and custom GLSL shaders for GPU-accelerated particles",
+      "Implemented NOAA solar position algorithm to map sun coordinates to UV shader uniforms",
+    ],
+    screenshots: [],
+    liveUrl: "https://weatherwave.vercel.app",
+    githubUrl: "https://github.com/samyk-s/weatherwave",
+    featured: true,
+    gradient: "from-sky-400 via-blue-500 to-indigo-600",
+  },
+];
+
+export const featuredProjects = projects.filter((p) => p.featured);
+export const allTechTags = Array.from(
+  new Set(projects.flatMap((p) => p.techStack))
+).sort();
