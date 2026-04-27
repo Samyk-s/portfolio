@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { siteConfig } from "@/lib/utils";
-import { FiGithub, FiLinkedin, FiTwitter, FiMail } from "react-icons/fi";
+import { FiGithub, FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
 
 const socials = [
   { icon: FiGithub, href: siteConfig.github, label: "GitHub" },
   { icon: FiLinkedin, href: siteConfig.linkedin, label: "LinkedIn" },
-  { icon: FiTwitter, href: siteConfig.twitter, label: "Twitter" },
+  { icon: FiInstagram, href: siteConfig.instagram, label: "Instagram" },
   { icon: FiMail, href: `mailto:${siteConfig.email}`, label: "Email" },
 ];
 

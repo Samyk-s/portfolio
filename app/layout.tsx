@@ -65,7 +65,6 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} — Frontend Engineer`,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@samykbajr",
   },
   robots: {
     index: true,
@@ -93,7 +92,7 @@ const jsonLd = {
     addressLocality: "Kathmandu",
     addressCountry: "NP",
   },
-  sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.twitter],
+  sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.instagram],
 };
 
 export default function RootLayout({

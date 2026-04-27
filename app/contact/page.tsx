@@ -3,7 +3,7 @@ import SectionReveal from "@/components/ui/SectionReveal";
 import ContactForm from "@/components/contact/ContactForm";
 import { siteConfig } from "@/lib/utils";
 import { ArrowDownTrayIcon, EnvelopeIcon, MapPinIcon } from "@heroicons/react/24/outline";
-import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
+import { FiGithub, FiInstagram, FiLinkedin } from "react-icons/fi";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -29,7 +29,7 @@ const contactInfo = [
 const socials = [
   { icon: FiGithub, label: "GitHub", href: siteConfig.github },
   { icon: FiLinkedin, label: "LinkedIn", href: siteConfig.linkedin },
-  { icon: FiTwitter, label: "Twitter", href: siteConfig.twitter },
+  { icon: FiInstagram, label: "Instagram", href: siteConfig.instagram },
 ];
 
 export default function ContactPage() {

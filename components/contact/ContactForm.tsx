@@ -38,7 +38,7 @@ export default function ContactForm() {
 
     try {
       const res = await fetch(
-        `https://formsubmit.co/ajax/${siteConfig.email}`,
+        `https://formsubmit.co/ajax/${siteConfig.formSubmitToken}`,
         {
           method: "POST",
           headers: {
@@ -50,6 +50,7 @@ export default function ContactForm() {
             _subject: `Portfolio Contact: ${form.subject}`,
             _template: "table",
             _captcha: "false",
+            _replyto: form.email,
           }),
         }
       );
@@ -61,7 +62,7 @@ export default function ContactForm() {
         throw new Error("Failed to send");
       }
     } catch {
-      setError("Something went wrong. Please email me directly.");
+      setError(`Something went wrong. Please email me directly at ${siteConfig.email}.`);
     } finally {
       setLoading(false);
     }
@@ -94,7 +95,7 @@ export default function ContactForm() {
           Message sent!
         </h3>
         <p style={{ color: "var(--fg-muted)" }} className="text-sm">
-          Thanks for reaching out. I&apos;ll get back to you within 24 hours.
+          Thanks for reaching out. Your message was sent to my email, and I&apos;ll get back to you within 24 hours.
         </p>
         <button
           onClick={() => setSent(false)}
@@ -234,6 +235,18 @@ export default function ContactForm() {
       >
         {loading ? "Sending..." : "Send Message →"}
       </MagneticButton>
+
+      <p className="text-xs leading-relaxed" style={{ color: "var(--fg-muted)" }}>
+        This sends directly to{" "}
+        <a
+          href={`mailto:${siteConfig.email}`}
+          className="font-medium hover:text-indigo-500 transition-colors"
+          style={{ color: "var(--fg)" }}
+        >
+          {siteConfig.email}
+        </a>
+        .
+      </p>
     </form>
   );
 }
